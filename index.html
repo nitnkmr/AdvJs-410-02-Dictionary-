@@ -24,21 +24,27 @@
 
         let dataEle=document.getElementById('data')
         let searchInput=document.getElementById('search')
+        if(searchInput.length>0){
 
-        let res=await fetch(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${searchInput.value}?key=0386bca9-7411-4e24-b36e-18f10f344072`)
-        let data= await res.json();
-        console.log(data);
-        // console.log('btn clicked');
-
-        // let res1=await fetch(`https://media.merriam-webster.com/audio/prons/en/us/mp3/${getAudioSubdirectory(audioName)}/${audioName}.mp3`)
-        // let data1= await res.json();
-        // console.log(data1);
-
-        dataEle.innerHTML=`<p>${data[0].shortdef[0]}</p>
-        
-        <audio src="" controls autoplay></audio>
-        `
-
+            
+            let res=await fetch(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${searchInput.value}?key=0386bca9-7411-4e24-b36e-18f10f344072`)
+            let data= await res.json();
+            console.log(data);
+            // console.log('btn clicked');
+            
+            // let res1=await fetch(`https://media.merriam-webster.com/audio/prons/en/us/mp3/${getAudioSubdirectory(audioName)}/${audioName}.mp3`)
+            // let data1= await res.json();
+            // console.log(data1);
+            
+            dataEle.innerHTML=`<p>${data[0].shortdef[0]}</p>
+            
+            <audio src="" controls autoplay></audio>
+            `
+            
+        }
+        else{
+            alert('enter something')
+        }
     }
 
     </script>
